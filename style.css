@@ -1,0 +1,92 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    max-width:600px;
+    width:90%;
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#ff4d88;
+}
+
+h2{
+    margin-top:25px;
+}
+
+.message{
+    color:#666;
+    font-size:18px;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+button{
+    border:none;
+    padding:15px 30px;
+    margin:10px;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.yes-btn{
+    background:#ff4d88;
+    color:white;
+}
+
+.no-btn{
+    background:#444;
+    color:white;
+}
+
+#result{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:bold;
+}.no-btn{
+
+
+background:#444;
+color:white;
+
+transition:
+    left 0.15s ease,
+    top 0.15s ease,
+    transform 0.2s ease;
+
+
+}
+
+.no-btn:hover{
+
+
+transform:scale(1.05);
+
+}
