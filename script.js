@@ -11,6 +11,7 @@ const funnyMessages = [
     "That button seems shy today 😆",
     "You will not regret it! 🥺",
     "At least consider the food 🍕",
+    "Am I Ugly?🥺",
     "Please?! 😂"
 ];
 
