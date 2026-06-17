@@ -90,3 +90,23 @@ transition:
 transform:scale(1.05);
 
 }
+.no-message{
+position: fixed;
+display: none;
+
+background: white;
+color: #333;
+
+padding: 10px 15px;
+border-radius: 15px;
+
+box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+
+font-size: 14px;
+font-weight: bold;
+
+z-index: 9999;
+
+pointer-events: none;
+
+}
