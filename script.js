@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const result = document.getElementById("result");
-const result = document.getElementById("noMessage");
+const noMessage = document.getElementById("noMessage");
 const funnyMessages = [
 "Are you sure? 😢",
 "Maybe give it another thought? ❤️",
