@@ -7,7 +7,37 @@ const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const result = document.getElementById("result");
 const noMessage = document.getElementById("noMessage");
+const musicBtn =
+    document.getElementById("musicBtn");
 
+const bgMusic =
+    document.getElementById("bgMusic");
+
+let musicPlaying = false;
+
+musicBtn.addEventListener("click", () => {
+
+    if(!musicPlaying){
+
+        bgMusic.play();
+
+        musicBtn.innerHTML =
+            "⏸ Pause Music";
+
+        musicPlaying = true;
+
+    } else {
+
+        bgMusic.pause();
+
+        musicBtn.innerHTML =
+            "▶️ Play Music";
+
+        musicPlaying = false;
+
+    }
+
+});
 const funnyMessages = [
     "Are you sure? 😢",
     "Too slow? ❤️",
