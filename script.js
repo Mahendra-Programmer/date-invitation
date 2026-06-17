@@ -149,7 +149,7 @@ emailjs.send(
             APP_CONFIG.notificationEmail,
 
         message:
-            `${girlName} clicked YES ❤️`
+            "Someone clicked YES ❤️"
     }
 
 )
