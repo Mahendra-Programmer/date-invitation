@@ -5,18 +5,36 @@ const result = document.getElementById("result");
 const noMessage = document.getElementById("noMessage");
 const funnyMessages = [
 "Are you sure? 😢",
-"Maybe give it another thought? ❤️",
+"Too slow? ❤️",
 "That button seems shy today 😆",
-"I worked hard on this page! 🥺",
+"You will not regret it! 🥺",
 "At least consider the food 🍕",
-"You found it again?! 😂"
+"Please?! 😂"
 ];
 
 // YES BUTTON
 yesBtn.addEventListener("click", () => {
 
-    result.innerHTML =
-    "🎉 Yay! Looking forward to our date ❤️";
+    result.innerHTML = `
+
+<p>
+    Thank you for saying yes.
+</p>
+
+<p>
+    I will text you personally with all the details very soon. 😊
+</p>
+
+<p>
+    I can't wait to see you❤️.
+</p>
+
+yesBtn.style.display = "none";
+noBtn.style.display = "none";
+
+if(noMessage){
+noMessage.style.display = "none";
+}
 
     if(typeof confetti === "function"){
 
