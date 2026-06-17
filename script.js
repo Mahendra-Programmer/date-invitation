@@ -2,6 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const result = document.getElementById("result");
+const result = document.getElementById("noMessage");
+const funnyMessages = [
+"Are you sure? 😢",
+"Maybe give it another thought? ❤️",
+"That button seems shy today 😆",
+"I worked hard on this page! 🥺",
+"At least consider the food 🍕",
+"You found it again?! 😂"
+];
 
 // YES BUTTON
 yesBtn.addEventListener("click", () => {
@@ -28,23 +37,51 @@ yesBtn.addEventListener("click", () => {
 // PLAYFUL NO BUTTON
 function moveNoButton(){
 
-    const maxX =
-        window.innerWidth -
-        noBtn.offsetWidth - 50;
+const maxX =
+    window.innerWidth -
+    noBtn.offsetWidth - 50;
 
-    const maxY =
-        window.innerHeight -
-        noBtn.offsetHeight - 50;
+const maxY =
+    window.innerHeight -
+    noBtn.offsetHeight - 50;
 
-    const randomX =
-        Math.floor(Math.random() * maxX);
+const randomX =
+    Math.floor(Math.random() * maxX);
 
-    const randomY =
-        Math.floor(Math.random() * maxY);
+const randomY =
+    Math.floor(Math.random() * maxY);
 
-    noBtn.style.position = "fixed";
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
+noBtn.style.position = "fixed";
+noBtn.style.left = randomX + "px";
+noBtn.style.top = randomY + "px";
+
+const message =
+    funnyMessages[
+        Math.floor(
+            Math.random() *
+            funnyMessages.length
+        )
+    ];
+
+noMessage.textContent = message;
+
+noMessage.style.display = "block";
+
+noMessage.style.left =
+    (randomX - 20) + "px";
+
+noMessage.style.top =
+    (randomY - 50) + "px";
+
+clearTimeout(window.messageTimer);
+
+window.messageTimer =
+    setTimeout(() => {
+
+        noMessage.style.display =
+            "none";
+
+    }, 2000);
 
 }
 
