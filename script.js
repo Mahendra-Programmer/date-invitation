@@ -1,42 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
+
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const result = document.getElementById("result");
 const noMessage = document.getElementById("noMessage");
+
 const funnyMessages = [
-"Are you sure? 😢",
-"Too slow? ❤️",
-"That button seems shy today 😆",
-"You will not regret it! 🥺",
-"At least consider the food 🍕",
-"Please?! 😂"
+    "Are you sure? 😢",
+    "Too slow? ❤️",
+    "That button seems shy today 😆",
+    "You will not regret it! 🥺",
+    "At least consider the food 🍕",
+    "Please?! 😂"
 ];
 
 // YES BUTTON
 yesBtn.addEventListener("click", () => {
 
     result.innerHTML = `
+        <div class="success-message">
+            <h2>❤️ You Just Made My Day ❤️</h2>
 
-<p>
-    Thank you for saying yes.
-</p>
+            <p>
+                Thank you for saying yes.
+            </p>
 
-<p>
-    I will text you personally with all the details very soon. 😊
-</p>
+            <p>
+                I will text you personally with all the details very soon. 😊
+            </p>
 
-<p>
-    I can't wait to see you❤️.
-</p>
+            <p>
+                I can't wait to see you ❤️
+            </p>
+        </div>
+    `;
 
-yesBtn.style.display = "none";
-noBtn.style.display = "none";
+    yesBtn.style.display = "none";
+    noBtn.style.display = "none";
 
-if(noMessage){
-noMessage.style.display = "none";
-}
+    if (noMessage) {
+        noMessage.style.display = "none";
+    }
 
-    if(typeof confetti === "function"){
+    if (typeof confetti === "function") {
 
         confetti({
             particleCount: 250,
@@ -52,54 +58,58 @@ noMessage.style.display = "none";
 
 });
 
-// PLAYFUL NO BUTTON
-function moveNoButton(){
+// NO BUTTON MOVEMENT
+function moveNoButton() {
 
-const maxX =
-    window.innerWidth -
-    noBtn.offsetWidth - 50;
+    const maxX =
+        window.innerWidth -
+        noBtn.offsetWidth - 50;
 
-const maxY =
-    window.innerHeight -
-    noBtn.offsetHeight - 50;
+    const maxY =
+        window.innerHeight -
+        noBtn.offsetHeight - 50;
 
-const randomX =
-    Math.floor(Math.random() * maxX);
+    const randomX =
+        Math.floor(Math.random() * maxX);
 
-const randomY =
-    Math.floor(Math.random() * maxY);
+    const randomY =
+        Math.floor(Math.random() * maxY);
 
-noBtn.style.position = "fixed";
-noBtn.style.left = randomX + "px";
-noBtn.style.top = randomY + "px";
+    noBtn.style.position = "fixed";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
 
-const message =
-    funnyMessages[
-        Math.floor(
-            Math.random() *
-            funnyMessages.length
-        )
-    ];
+    const message =
+        funnyMessages[
+            Math.floor(
+                Math.random() *
+                funnyMessages.length
+            )
+        ];
 
-noMessage.textContent = message;
+    if (noMessage) {
 
-noMessage.style.display = "block";
+        noMessage.textContent = message;
 
-noMessage.style.left =
-    (randomX - 20) + "px";
+        noMessage.style.display = "block";
 
-noMessage.style.top =
-    (randomY - 50) + "px";
+        noMessage.style.left =
+            (randomX - 20) + "px";
 
-clearTimeout(window.messageTimer);
+        noMessage.style.top =
+            (randomY - 50) + "px";
 
-window.messageTimer =
-    setTimeout(() => {
+        clearTimeout(window.messageTimer);
 
-        noMessage.style.display =
-            "none";
+        window.messageTimer =
+            setTimeout(() => {
 
-    }, 2000);
+                noMessage.style.display =
+                    "none";
+
+            }, 2000);
+
+    }
 
 }
 
@@ -115,14 +125,13 @@ noBtn.addEventListener(
     moveNoButton
 );
 
-
 });
 
-function sendEmail(){
+function sendEmail() {
 
 emailjs.init({
     publicKey:
-    APP_CONFIG.emailjs.publicKey
+        APP_CONFIG.emailjs.publicKey
 });
 
 emailjs.send(
@@ -133,11 +142,10 @@ emailjs.send(
 
     {
         to_email:
-        APP_CONFIG.notificationEmail,
+            APP_CONFIG.notificationEmail,
 
         message:
-        "Someone clicked YES ❤️"
-
+            "Someone clicked YES ❤️"
     }
 
 )
@@ -151,6 +159,5 @@ emailjs.send(
     console.error(error);
 
 });
-
 
 }
