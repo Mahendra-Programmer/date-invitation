@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
 const params = new URLSearchParams(window.location.search);
-const girlName = params.get("name") || "Someone Special";
+const girlName = params.get("name") || "Unknown";
+
+document.addEventListener("DOMContentLoaded", () => {
     
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
@@ -149,7 +149,7 @@ emailjs.send(
             APP_CONFIG.notificationEmail,
 
         message:
-            "Someone clicked YES ❤️"
+            `${girlName} clicked YES on your date invitation ❤️`
     }
 
 )
