@@ -41,6 +41,9 @@ musicBtn.addEventListener("click", () => {
 const funnyMessages = [
     "Are you sure? 😢",
     "Too slow? ❤️",
+    "Yes aja",
+    "Gasiap ditolak",
+    "Kamu tega?",
     "That button seems shy today 😆",
     "You will not regret it! 🥺",
     "At least consider the food 🍕",
