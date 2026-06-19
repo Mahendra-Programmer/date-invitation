@@ -25,7 +25,8 @@ musicBtn.addEventListener("click", () => {
             "⏸ Pause Music";
 
         musicPlaying = true;
-
+        
+        document.querySelector(".music-player").style.opacity = "0.05";
     } else {
 
         bgMusic.pause();
