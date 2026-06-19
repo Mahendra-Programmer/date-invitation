@@ -40,12 +40,14 @@ musicBtn.addEventListener("click", () => {
 
 });
 const funnyMessages = [
-    "Are you sure? 😢",
-    "Too slow? ❤️",
-    "That button seems shy today 😆",
-    "You will not regret it! 🥺",
-    "At least consider the food 🍕",
-    "Am I Ugly?🥺",
+    "Maaf tidak menerima NO? 😢",
+    "Kurang cepat? ❤️",
+    "Terlalu lambat 😆",
+    "Ga bakal nyesel deh! 🥺",
+    "Beri aku kesempatan 🍕",
+    "Sejelek itu aku?🥺",
+    "Raja tega",
+    "Nanti juga sayang",
     "Please?! 😂"
 ];
 
