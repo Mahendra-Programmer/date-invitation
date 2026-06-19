@@ -28,14 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* ================= FUNNY TEXT ================= */
+    /* ================= FUNNY MESSAGES ================= */
     const funnyMessages = [
         "Yakin? 😢",
         "Kurang cepet? ❤️",
         "Yes aja 😆",
         "Gasiap ditolak",
         "Kamu setega itu?",
-        "That button seems shy 😆",
+        "Button ini malu 😆",
         "Ga bakal nyesel 🥺",
         "Aku yang bayar 🍕",
         "Aku jelek ya? 🥺",
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="success-message">
                 <h2>❤️ You Just Made My Day ❤️</h2>
                 <p>Thank you for saying yes.</p>
-                <p>I will text you personally with all the details very soon. 😊</p>
+                <p>I will text you soon with details 😊</p>
                 <p>I can't wait to see you ❤️</p>
             </div>
         `;
@@ -75,27 +75,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const padding = 20;
 
-        const btnWidth = noBtn.offsetWidth;
-        const btnHeight = noBtn.offsetHeight;
+        const btnWidth = noBtn.offsetWidth || 100;
+        const btnHeight = noBtn.offsetHeight || 50;
 
         const maxX = Math.max(0, window.innerWidth - btnWidth - padding);
         const maxY = Math.max(0, window.innerHeight - btnHeight - padding);
 
-        const randomX = Math.random() * maxX;
-        const randomY = Math.random() * maxY;
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
 
-        // IMPORTANT FIX: always use fixed but NEVER re-add scroll issues
         noBtn.style.position = "fixed";
         noBtn.style.left = randomX + "px";
         noBtn.style.top = randomY + "px";
-
-        noBtn.style.transform = "none"; // prevent drift
+        noBtn.style.transform = "none";
+        noBtn.style.zIndex = "9999";
 
         /* ================= FUNNY MESSAGE ================= */
-        const message =
-            funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
-
         if (noMessage) {
+
+            const message =
+                funnyMessages[Math.floor(Math.random() * funnyMessages.length)];
 
             noMessage.textContent = message;
             noMessage.style.display = "block";
@@ -111,9 +110,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    /* ================= ENSURE BUTTON ALWAYS VISIBLE ON LOAD ================= */
+    function initNoButton() {
+
+        noBtn.style.position = "fixed";
+        noBtn.style.left = "50%";
+        noBtn.style.top = "70%";
+        noBtn.style.transform = "translate(-50%, -50%)";
+        noBtn.style.zIndex = "9999";
+    }
+
     /* ================= EVENTS ================= */
     noBtn.addEventListener("mouseenter", moveNoButton);
     noBtn.addEventListener("touchstart", moveNoButton, { passive: true });
+
+    window.addEventListener("load", initNoButton);
+    window.addEventListener("resize", initNoButton);
 
 });
 
