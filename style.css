@@ -1,180 +1,157 @@
-*{
-    box-sizing: border-box;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-html, body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-
-    font-family: Arial, sans-serif;
-
-    background-image: url("background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* background overlay */
-body::before{
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(3px);
-    z-index: -1;
-}
-
-/* center layout */
 .container{
-    width: 100%;
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* card */
 .card{
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(20px);
-
-    border: 1px solid rgba(255,255,255,0.3);
-
-    padding: 40px;
-    border-radius: 30px;
-
-    text-align: center;
-
-    max-width: 600px;
-    width: 90%;
-
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-
-    position: relative;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    max-width:600px;
+    width:90%;
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
 }
 
-/* text */
 h1{
-    color: #ff4d88;
+    color:#ff4d88;
 }
 
 h2{
-    color: white;
+    margin-top:25px;
 }
 
 .message{
-    color: white;
+    color:#666;
+    font-size:18px;
 }
 
-/* buttons container */
-.buttons {
-    margin-top: 30px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-
-    position: relative;
-    height: 80px;
+.buttons{
+    margin-top:30px;
 }
 
-/* base button */
 button{
-    border: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 18px;
-    cursor: pointer;
-
-    transition: transform 0.2s ease;
-
-    margin: 0;
-    min-width: 120px;
+    border:none;
+    padding:15px 30px;
+    margin:10px;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-/* hover (no layout shift) */
 button:hover{
-    transform: scale(1.05);
+    transform:scale(1.05);
 }
 
-/* YES button */
 .yes-btn{
-    background: #ff4d88;
-    color: white;
-
-    position: relative;
-    z-index: 5;
+    background:#ff4d88;
+    color:white;
 }
 
-/* NO button (IMPORTANT FOR JS DODGE) */
 .no-btn{
-    background: #444;
-    color: white;
-
-    position: absolute;
-    top: 0;
-    left: 55%;
-
-    z-index: 10;
-
-    transition: transform 0.2s ease;
+    background:#444;
+    color:white;
 }
 
-/* result text */
 #result{
-    margin-top: 25px;
-    font-size: 22px;
-    font-weight: bold;
+    margin-top:25px;
+    font-size:22px;
+    font-weight:bold;
+}.no-btn{
+
+
+background:#444;
+color:white;
+
+transition:
+    left 0.15s ease,
+    top 0.15s ease,
+    transform 0.2s ease;
+
+
 }
 
-/* floating message (near No button) */
+.no-btn:hover{
+
+
+transform:scale(1.05);
+
+}
 .no-message{
-    position: absolute;
+position: fixed;
+display: none;
 
-    display: none;
+background: white;
+color: #333;
 
-    background: white;
-    color: #333;
+padding: 10px 15px;
+border-radius: 15px;
 
-    padding: 10px 15px;
-    border-radius: 15px;
+box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+font-size: 14px;
+font-weight: bold;
 
-    font-size: 14px;
-    font-weight: bold;
+z-index: 9999;
 
-    z-index: 9999;
+pointer-events: none;
 
-    pointer-events: none;
+}
+.success-message{
+animation: fadeIn 1s ease;
 }
 
-/* music player */
+.success-message h2{
+color:#ff4d88;
+margin-bottom:20px;
+}
+
+.success-message p{
+font-size:18px;
+line-height:1.6;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform(20px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
 .music-player{
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-
-    background: white;
-    padding: 12px 18px;
-    border-radius: 20px;
-
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    z-index: 9999;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:white;
+    padding:12px 18px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    z-index:9999;
 }
 
 .song-title{
-    font-size: 14px;
-    color: #444;
-    font-weight: bold;
+    font-size:14px;
+    color:#444;
+    font-weight:bold;
 }
