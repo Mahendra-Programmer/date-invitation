@@ -72,10 +72,14 @@ h2{
 }
 
 /* buttons */
-.buttons{
+.buttons {
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     position: relative;
-    height: 120px; /* IMPORTANT: gives space for movement */
+    height: 80px;
 }
 
 button{
@@ -95,28 +99,19 @@ button:hover{
 .yes-btn{
     background: #ff4d88;
     color: white;
+    position: relative;
+    z-index: 5;
 }
 
 /* IMPORTANT: absolute so JS can move safely */
 .no-btn{
-    position: fixed;
-
-    left: 50%;
-    top: 70%;
-
-    transform: translate(-50%, -50%);
-
-    background: #444;
+ background: #444;
     color: white;
 
-    border: none;
-    padding: 15px 30px;
-    border-radius: 50px;
-    font-size: 18px;
+    position: relative; /* IMPORTANT: NOT absolute anymore for alignment */
+    z-index: 10;
 
-    cursor: pointer;
-
-    z-index: 9998;
+    transition: transform 0.2s ease;
 }
 /* result */
 #result{
