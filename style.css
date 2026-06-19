@@ -155,3 +155,10 @@ to{
     color:#444;
     font-weight:bold;
 }
+.music-player{
+    transition: opacity 0.5s ease;
+}
+
+.music-player:hover{
+    opacity:1 !important;
+}
