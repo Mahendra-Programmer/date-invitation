@@ -1,197 +1,157 @@
-const params = new URLSearchParams(window.location.search);
-const girlName = params.get("name") || "Unknown";
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-    
-const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
-const result = document.getElementById("result");
-const noMessage = document.getElementById("noMessage");
-const musicBtn =
-    document.getElementById("musicBtn");
+.container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
 
-const bgMusic =
-    document.getElementById("bgMusic");
+.card{
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    max-width:600px;
+    width:90%;
+    box-shadow:0 10px 40px rgba(0,0,0,0.2);
+}
 
-let musicPlaying = false;
+h1{
+    color:#ff4d88;
+}
 
-musicBtn.addEventListener("click", () => {
+h2{
+    margin-top:25px;
+}
 
-    if(!musicPlaying){
+.message{
+    color:#666;
+    font-size:18px;
+}
 
-        bgMusic.play();
+.buttons{
+    margin-top:30px;
+}
 
-        musicBtn.innerHTML =
-            "⏸ Pause Music";
+button{
+    border:none;
+    padding:15px 30px;
+    margin:10px;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-        musicPlaying = true;
+button:hover{
+    transform:scale(1.05);
+}
 
-    } else {
+.yes-btn{
+    background:#ff4d88;
+    color:white;
+}
 
-        bgMusic.pause();
+.no-btn{
+    background:#444;
+    color:white;
+}
 
-        musicBtn.innerHTML =
-            "▶️ Play Music";
+#result{
+    margin-top:25px;
+    font-size:22px;
+    font-weight:bold;
+}.no-btn{
 
-        musicPlaying = false;
 
-    }
+background:#444;
+color:white;
 
-});
-const funnyMessages = [
-    "Are you sure? 😢",
-    "Too slow? ❤️",
-    "That button seems shy today 😆",
-    "You will not regret it! 🥺",
-    "At least consider the food 🍕",
-    "Am I Ugly?🥺",
-    "Please?! 😂"
-];
+transition:
+    left 0.15s ease,
+    top 0.15s ease,
+    transform 0.2s ease;
 
-// YES BUTTON
-yesBtn.addEventListener("click", () => {
-
-    result.innerHTML = `
-        <div class="success-message">
-            <h2>❤️ You Just Made My Day ❤️</h2>
-
-            <p>
-                Thank you for saying yes.
-            </p>
-
-            <p>
-                I will text you personally with all the details very soon. 😊
-            </p>
-
-            <p>
-                I can't wait to see you ❤️
-            </p>
-        </div>
-    `;
-
-    yesBtn.style.display = "none";
-    noBtn.style.display = "none";
-
-    if (noMessage) {
-        noMessage.style.display = "none";
-    }
-
-    if (typeof confetti === "function") {
-
-        confetti({
-            particleCount: 250,
-            spread: 120,
-            origin: {
-                y: 0.6
-            }
-        });
-
-    }
-
-    sendEmail();
-
-});
-
-// NO BUTTON MOVEMENT
-function moveNoButton() {
-
-    const maxX =
-        window.innerWidth -
-        noBtn.offsetWidth - 50;
-
-    const maxY =
-        window.innerHeight -
-        noBtn.offsetHeight - 50;
-
-    const randomX =
-        Math.floor(Math.random() * maxX);
-
-    const randomY =
-        Math.floor(Math.random() * maxY);
-
-    noBtn.style.position = "fixed";
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
-
-    const message =
-        funnyMessages[
-            Math.floor(
-                Math.random() *
-                funnyMessages.length
-            )
-        ];
-
-    if (noMessage) {
-
-        noMessage.textContent = message;
-
-        noMessage.style.display = "block";
-
-        noMessage.style.left =
-            (randomX - 20) + "px";
-
-        noMessage.style.top =
-            (randomY - 50) + "px";
-
-        clearTimeout(window.messageTimer);
-
-        window.messageTimer =
-            setTimeout(() => {
-
-                noMessage.style.display =
-                    "none";
-
-            }, 2000);
-
-    }
 
 }
 
-// Desktop
-noBtn.addEventListener(
-    "mouseenter",
-    moveNoButton
-);
+.no-btn:hover{
 
-// Mobile
-noBtn.addEventListener(
-    "touchstart",
-    moveNoButton
-);
 
-});
+transform:scale(1.05);
 
-function sendEmail() {
+}
+.no-message{
+position: fixed;
+display: none;
 
-emailjs.init({
-    publicKey:
-        APP_CONFIG.emailjs.publicKey
-});
+background: white;
+color: #333;
 
-emailjs.send(
+padding: 10px 15px;
+border-radius: 15px;
 
-    APP_CONFIG.emailjs.serviceId,
+box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 
-    APP_CONFIG.emailjs.templateId,
+font-size: 14px;
+font-weight: bold;
 
-    {
-        to_email:
-            APP_CONFIG.notificationEmail,
+z-index: 9999;
 
-        message:
-            `${girlName} clicked YES on your date invitation ❤️`
-    }
+pointer-events: none;
 
-)
-.then(() => {
+}
+.success-message{
+animation: fadeIn 1s ease;
+}
 
-    console.log("Email sent");
+.success-message h2{
+color:#ff4d88;
+margin-bottom:20px;
+}
 
-})
-.catch((error) => {
+.success-message p{
+font-size:18px;
+line-height:1.6;
+}
 
-    console.error(error);
+@keyframes fadeIn{
+from{
+opacity:0;
+transform(20px);
+}
 
-});
+to{
+    opacity:1;
+    transform:translateY(0);
+}
 
+}
+.music-player{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:white;
+    padding:12px 18px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    z-index:9999;
+}
+
+.song-title{
+    font-size:14px;
+    color:#444;
+    font-weight:bold;
 }
