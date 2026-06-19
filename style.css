@@ -99,17 +99,25 @@ button:hover{
 
 /* IMPORTANT: absolute so JS can move safely */
 .no-btn{
-    position: absolute;
+    position: fixed;
 
     left: 50%;
-    top: 0;
+    top: 70%;
 
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
 
     background: #444;
     color: white;
-}
 
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    z-index: 9998;
+}
 /* result */
 #result{
     margin-top: 25px;
