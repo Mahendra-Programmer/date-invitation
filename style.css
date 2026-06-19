@@ -1,204 +1,188 @@
 *{
-    box-sizing:border-box;
-}
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-
-    background-image:url("background.png");
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
-
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow-x:hidden;
+    box-sizing: border-box;
 }
 
+html, body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Dark overlay */
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(3px);
+    z-index: -1;
+}
+
+/* Center container */
 .container{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* Card */
 .card{
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.3);
 
-    background:rgba(255,255,255,0.18);
+    padding: 40px;
+    border-radius: 30px;
 
-    backdrop-filter:blur(20px);
+    text-align: center;
 
-    border:1px solid rgba(255,255,255,0.3);
+    max-width: 600px;
+    width: 90%;
 
-    padding:40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
 
-    border-radius:30px;
-
-    text-align:center;
-
-    max-width:600px;
-
-    width:90%;
-
-    box-shadow:
-        0 15px 40px rgba(0,0,0,0.25);
-
+/* Text */
+h1, h2{
+    color: white;
 }
 
 h1{
-    color:#ff4d88;
-}
-
-h2{
-    margin-top:25px;
+    color: #ff4d88;
 }
 
 .message{
-    color:white;
-}
+    color: white;
 }
 
+/* Buttons */
 .buttons{
-    margin-top:30px;
+    margin-top: 30px;
 }
 
 button{
-    border:none;
-    padding:15px 30px;
-    margin:10px;
-    border-radius:50px;
-    font-size:18px;
-    cursor:pointer;
-    transition:0.3s;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 button:hover{
-    transform:scale(1.05);
+    transform: scale(1.05);
 }
 
 .yes-btn{
-    background:#ff4d88;
-    color:white;
+    background: #ff4d88;
+    color: white;
 }
 
 .no-btn{
-    background:#444;
-    color:white;
+    background: #444;
+    color: white;
+
+    transition: left 0.15s ease,
+                top 0.15s ease,
+                transform 0.2s ease;
 }
 
+/* Result */
 #result{
-    margin-top:25px;
-    font-size:22px;
-    font-weight:bold;
-}.no-btn{
-
-
-background:#444;
-color:white;
-
-transition:
-    left 0.15s ease,
-    top 0.15s ease,
-    transform 0.2s ease;
-
-
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-.no-btn:hover{
-
-
-transform:scale(1.05);
-
-}
+/* Floating "no" message */
 .no-message{
-position: fixed;
-display: none;
+    position: fixed;
+    display: none;
 
-background: white;
-color: #333;
+    background: white;
+    color: #333;
 
-padding: 10px 15px;
-border-radius: 15px;
+    padding: 10px 15px;
+    border-radius: 15px;
 
-box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 
-font-size: 14px;
-font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
 
-z-index: 9999;
+    z-index: 9999;
 
-pointer-events: none;
-
+    pointer-events: none;
 }
+
+/* Success message */
 .success-message{
-animation: fadeIn 1s ease;
+    animation: fadeIn 1s ease;
 }
 
 .success-message h2{
-color:#ff4d88;
-margin-bottom:20px;
+    color: #ff4d88;
+    margin-bottom: 20px;
 }
 
 .success-message p{
-font-size:18px;
-line-height:1.6;
+    font-size: 18px;
+    line-height: 1.6;
 }
 
+/* Animation fix */
 @keyframes fadeIn{
-from{
-opacity:0;
-transform(20px);
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-to{
-    opacity:1;
-    transform:translateY(0);
-}
-
-}
+/* Music player */
 .music-player{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:white;
-    padding:12px 18px;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    z-index:9999;
-}
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 
-.song-title{
-    font-size:14px;
-    color:#444;
-    font-weight:bold;
-}
-.music-player{
+    background: white;
+    padding: 12px 18px;
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 9999;
+
     transition: opacity 0.5s ease;
 }
 
 .music-player:hover{
-    opacity:1 !important;
+    opacity: 1 !important;
 }
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
 
-    background:rgba(255,255,255,0.12);
-
-    backdrop-filter:blur(3px);
-
-    z-index:-1;
-}
-h1,h2{
-    color:white;
-}
-html, body{
-    overflow-x: hidden;
+.song-title{
+    font-size: 14px;
+    color: #444;
+    font-weight: bold;
 }
