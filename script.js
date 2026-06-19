@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const noBtn = document.getElementById("noBtn");
     const result = document.getElementById("result");
     const noMessage = document.getElementById("noMessage");
+    const card = document.querySelector(".card");
 
     const musicBtn = document.getElementById("musicBtn");
     const bgMusic = document.getElementById("bgMusic");
@@ -15,13 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ================= MUSIC ================= */
     musicBtn.addEventListener("click", () => {
-
         if (!musicPlaying) {
             bgMusic.play();
             musicBtn.innerHTML = "⏸ Pause Music";
             musicPlaying = true;
-
-            document.querySelector(".music-player").style.opacity = "0.05";
         } else {
             bgMusic.pause();
             musicBtn.innerHTML = "▶️ Play Music";
@@ -70,33 +68,27 @@ document.addEventListener("DOMContentLoaded", () => {
         sendEmail();
     });
 
-    /* ================= SAFE SIDE-BY-SIDE NO BUTTON ================= */
-
+    /* ================= SAFE NO BUTTON MOVE ================= */
     function moveNoButton() {
 
         const padding = 10;
 
-        const card = document.querySelector(".card");
         const cardRect = card.getBoundingClientRect();
 
         const btnWidth = noBtn.offsetWidth;
         const btnHeight = noBtn.offsetHeight;
 
-        // ONLY MOVE INSIDE CARD (NOT FULL SCREEN)
         const maxX = cardRect.width - btnWidth - padding;
         const maxY = cardRect.height - btnHeight - padding;
 
-        const randomX = Math.max(0, Math.random() * maxX);
-        const randomY = Math.max(0, Math.random() * maxY);
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
 
-        // make sure it's relative to card
-        noBtn.style.position = "absolute";
-        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        // MOVE RELATIVE TO CARD
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
 
-        noBtn.style.transform = "none";
-        noBtn.style.zIndex = "10";
-
-        /* ================= MESSAGE ================= */
+        /* ================= MESSAGE (FIXED POSITION) ================= */
         if (noMessage) {
 
             const message =
@@ -105,25 +97,19 @@ document.addEventListener("DOMContentLoaded", () => {
             noMessage.textContent = message;
             noMessage.style.display = "block";
 
-            noMessage.style.left = (cardRect.left + randomX + 20) + "px";
-            noMessage.style.top = (cardRect.top + randomY - 40) + "px";
+            noMessage.style.left = (x + 20) + "px";
+            noMessage.style.top = (y - 40) + "px";
 
             clearTimeout(window.messageTimer);
 
             window.messageTimer = setTimeout(() => {
                 noMessage.style.display = "none";
-            }, 2000);
+            }, 1500);
         }
     }
 
-    /* ================= EVENTS (IMPORTANT FIX) ================= */
-    let movedOnce = false;
-
-    noBtn.addEventListener("mouseenter", () => {
-        if (!movedOnce) movedOnce = true;
-        moveNoButton();
-    });
-
+    /* ================= EVENTS ================= */
+    noBtn.addEventListener("mouseenter", moveNoButton);
     noBtn.addEventListener("mouseover", moveNoButton);
 
     noBtn.addEventListener("touchstart", (e) => {
