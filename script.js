@@ -201,7 +201,7 @@ emailjs.send(
 function createHearts() {
   const container = document.querySelector(".hearts");
 
-  for (let i = 0; i < 25; i++) {
+  for (let i = 0; i < 10; i++) {
     const heart = document.createElement("div");
     heart.classList.add("heart");
     heart.innerHTML = "❤";
@@ -219,5 +219,5 @@ function createHearts() {
   }
 }
 
-setInterval(createHearts, 1000);
+setInterval(createHearts, 2000);
 createHearts();
