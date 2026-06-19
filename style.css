@@ -1,7 +1,7 @@
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    background: url("background.png") center/cover no-repeat;
     min-height:100vh;
     display:flex;
     justify-content:center;
