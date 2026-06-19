@@ -198,3 +198,26 @@ emailjs.send(
 });
 
 }
+function createHearts() {
+  const container = document.querySelector(".hearts");
+
+  for (let i = 0; i < 25; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+    heart.style.setProperty("--x-move", (Math.random() * 200 - 100) + "px");
+    heart.style.fontSize = 12 + Math.random() * 20 + "px";
+
+    container.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 10000);
+  }
+}
+
+setInterval(createHearts, 1000);
+createHearts();
