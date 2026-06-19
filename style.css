@@ -5,21 +5,20 @@
 html, body{
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden; /* IMPORTANT: removes scroll issues */
+
     font-family: Arial, sans-serif;
 
     background-image: url("background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    min-height: 100vh;
-
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
-/* Dark overlay */
+/* background overlay */
 body::before{
     content: "";
     position: fixed;
@@ -29,19 +28,23 @@ body::before{
     z-index: -1;
 }
 
-/* Center container */
+/* center layout */
 .container{
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    position: relative;
 }
 
-/* Card */
+/* card */
 .card{
     background: rgba(255,255,255,0.18);
     backdrop-filter: blur(20px);
+
     border: 1px solid rgba(255,255,255,0.3);
 
     padding: 40px;
@@ -55,22 +58,24 @@ body::before{
     box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
-/* Text */
-h1, h2{
-    color: white;
-}
-
+/* text */
 h1{
     color: #ff4d88;
+}
+
+h2{
+    color: white;
 }
 
 .message{
     color: white;
 }
 
-/* Buttons */
+/* buttons */
 .buttons{
     margin-top: 30px;
+    position: relative;
+    height: 120px; /* IMPORTANT: gives space for movement */
 }
 
 button{
@@ -80,7 +85,7 @@ button{
     border-radius: 50px;
     font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 button:hover{
@@ -92,23 +97,27 @@ button:hover{
     color: white;
 }
 
+/* IMPORTANT: absolute so JS can move safely */
 .no-btn{
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translateX(-50%);
+
     background: #444;
     color: white;
-
-    transition: left 0.15s ease,
-                top 0.15s ease,
-                transform 0.2s ease;
 }
 
-/* Result */
+/* result */
 #result{
     margin-top: 25px;
     font-size: 22px;
     font-weight: bold;
 }
 
-/* Floating "no" message */
+/* floating message */
 .no-message{
     position: fixed;
     display: none;
@@ -129,34 +138,7 @@ button:hover{
     pointer-events: none;
 }
 
-/* Success message */
-.success-message{
-    animation: fadeIn 1s ease;
-}
-
-.success-message h2{
-    color: #ff4d88;
-    margin-bottom: 20px;
-}
-
-.success-message p{
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* Animation fix */
-@keyframes fadeIn{
-    from{
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to{
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Music player */
+/* music player */
 .music-player{
     position: fixed;
     bottom: 20px;
@@ -173,12 +155,6 @@ button:hover{
     gap: 10px;
 
     z-index: 9999;
-
-    transition: opacity 0.5s ease;
-}
-
-.music-player:hover{
-    opacity: 1 !important;
 }
 
 .song-title{
