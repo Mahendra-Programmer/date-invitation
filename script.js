@@ -25,7 +25,7 @@ musicBtn.addEventListener("click", () => {
             "⏸ Pause Music";
 
         musicPlaying = true;
-     document.querySelector(".music-player").style.opacity = "0.2";
+     document.querySelector(".music-player").style.opacity = "0.05";
     } else {
 
         bgMusic.pause();
@@ -39,15 +39,15 @@ musicBtn.addEventListener("click", () => {
 
 });
 const funnyMessages = [
-    "Are you sure? 😢",
-    "Too slow? ❤️",
+    "Yakin? 😢",
+    "kurang cepet? ❤️",
     "Yes aja",
     "Gasiap ditolak",
-    "Kamu tega?",
+    "Kamu setega itu?",
     "That button seems shy today 😆",
-    "You will not regret it! 🥺",
-    "At least consider the food 🍕",
-    "Am I Ugly?🥺",
+    "Ga bakal nyesel deh! 🥺",
+    "Aku yang bayar kok makannya 🍕",
+    "Aku jelek ya?🥺",
     "Please?! 😂"
 ];
 
