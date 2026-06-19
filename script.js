@@ -91,8 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // make sure it's relative to card
         noBtn.style.position = "absolute";
-        noBtn.style.left = randomX + "px";
-        noBtn.style.top = randomY + "px";
+        noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
 
         noBtn.style.transform = "none";
         noBtn.style.zIndex = "10";
