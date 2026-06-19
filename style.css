@@ -7,8 +7,7 @@ html, body{
     padding: 0;
     width: 100%;
     height: 100%;
-
-    overflow: hidden; /* IMPORTANT: removes scroll issues */
+    overflow: hidden;
 
     font-family: Arial, sans-serif;
 
@@ -36,8 +35,6 @@ body::before{
     display: flex;
     justify-content: center;
     align-items: center;
-
-    position: relative;
 }
 
 /* card */
@@ -56,6 +53,8 @@ body::before{
     width: 90%;
 
     box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+
+    position: relative;
 }
 
 /* text */
@@ -71,58 +70,72 @@ h2{
     color: white;
 }
 
-/* buttons */
+/* buttons container */
 .buttons {
     margin-top: 30px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+
     position: relative;
     height: 80px;
 }
 
+/* base button */
 button{
     border: none;
     padding: 15px 30px;
-    margin: 10px;
     border-radius: 50px;
     font-size: 18px;
     cursor: pointer;
-    transition: 0.2s;
+
+    transition: transform 0.2s ease;
+
+    margin: 0;
+    min-width: 120px;
 }
 
+/* hover (no layout shift) */
 button:hover{
     transform: scale(1.05);
 }
 
+/* YES button */
 .yes-btn{
     background: #ff4d88;
     color: white;
+
     position: relative;
     z-index: 5;
 }
 
-/* IMPORTANT: absolute so JS can move safely */
+/* NO button (IMPORTANT FOR JS DODGE) */
 .no-btn{
- background: #444;
+    background: #444;
     color: white;
 
-    position: relative; /* IMPORTANT: NOT absolute anymore for alignment */
+    position: absolute;
+    top: 0;
+    left: 55%;
+
     z-index: 10;
 
     transition: transform 0.2s ease;
 }
-/* result */
+
+/* result text */
 #result{
     margin-top: 25px;
     font-size: 22px;
     font-weight: bold;
 }
 
-/* floating message */
+/* floating message (near No button) */
 .no-message{
-    position: fixed;
+    position: absolute;
+
     display: none;
 
     background: white;
