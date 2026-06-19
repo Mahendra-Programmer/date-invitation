@@ -227,3 +227,44 @@ to{
   transform: scale(1.1);
   background: rgba(255, 255, 255, 0.25);
 }
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  /* container utama biar tidak terlalu mepet */
+  .container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /* tombol jadi lebih besar & mudah ditekan */
+  button {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+
+  /* YES & NO tidak terlalu dekat */
+  #yesBtn, #noBtn {
+    margin: 10px;
+  }
+
+  /* music button lebih kecil di mobile */
+  #musicBtn {
+    width: 35px;
+    height: 35px;
+    top: 10px;
+    right: 10px;
+  }
+
+  /* hearts lebih ringan (performance mobile) */
+  .heart {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+}
+button {
+  touch-action: manipulation;
+}
