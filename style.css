@@ -288,3 +288,26 @@ button {
     }
 
 }
+function createSparkle() {
+  const sparkle = document.createElement("div");
+  sparkle.classList.add("sparkle");
+
+  // posisi random di layar
+  sparkle.style.left = Math.random() * window.innerWidth + "px";
+  sparkle.style.top = Math.random() * window.innerHeight + "px";
+
+  // ukuran random kecil
+  const size = Math.random() * 4 + 3;
+  sparkle.style.width = size + "px";
+  sparkle.style.height = size + "px";
+
+  document.body.appendChild(sparkle);
+
+  // hapus setelah animasi selesai
+  setTimeout(() => {
+    sparkle.remove();
+  }, 2500);
+}
+
+// spawn terus tapi tidak terlalu berat
+setInterval(createSparkle, 400);
