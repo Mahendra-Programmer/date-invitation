@@ -222,3 +222,31 @@ function createHearts() {
 
 setInterval(createHearts, 2000);
 createHearts();
+function createGlow() {
+  const glow = document.createElement("div");
+  glow.classList.add("glow");
+
+  // posisi random
+  glow.style.left = Math.random() * window.innerWidth + "px";
+  glow.style.top = Math.random() * window.innerHeight + "px";
+
+  // warna soft pink + white
+  const colors = [
+    "rgba(255,255,255,0.9)",
+    "rgba(255,182,193,0.8)"
+  ];
+
+  const color = colors[Math.floor(Math.random() * colors.length)];
+
+  glow.style.background = color;
+  glow.style.boxShadow = `0 0 12px ${color}`;
+
+  document.body.appendChild(glow);
+
+  setTimeout(() => {
+    glow.remove();
+  }, 2000);
+}
+
+setInterval(createGlow, 500);
+createGlow();
