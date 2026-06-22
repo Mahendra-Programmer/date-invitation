@@ -41,13 +41,14 @@ musicBtn.addEventListener("click", () => {
 });
 const funnyMessages = [
     "Maaf tidak menerima NO? 😢",
-    "Kurang cepat? ❤️",
+    "you are love of my life? ❤️",
     "Terlalu lambat 😆",
     "Ga bakal nyesel deh! 🥺",
     "Beri aku kesempatan 🍕",
     "Sejelek itu aku?🥺",
-    "Raja tega",
+    "Kamu setega itu ",
     "Nanti juga sayang",
+    "Coba lagi",
     "Please?! 😂"
 ];
 
