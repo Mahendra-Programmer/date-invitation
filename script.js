@@ -13,14 +13,11 @@ cover.addEventListener("click", () => {
 setTimeout(() => {
 
     cover.style.display = "none";
-
     mainContent.classList.remove("hidden");
-    mainContent.classList.add("fade-in");
 
     music.play();
 
 }, 800);
-
 });    
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
