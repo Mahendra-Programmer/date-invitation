@@ -2,7 +2,24 @@ const params = new URLSearchParams(window.location.search);
 const girlName = params.get("name") || "Unknown";
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+const cover = document.getElementById("cover");
+const mainContent = document.getElementById("mainContent");
+const music = document.getElementById("bgMusic");
+
+cover.addEventListener("click", () => {
+
+    cover.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        cover.style.display = "none";
+        mainContent.classList.remove("hidden");
+
+        music.play();
+
+    }, 800);
+
+});    
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const result = document.getElementById("result");
