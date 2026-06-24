@@ -341,3 +341,17 @@ button {
         transform: translateY(-10px);
     }
 }
+.hidden{
+    display:none;
+}
+
+.fade-out{
+    animation: fadeOut .8s forwards;
+}
+
+@keyframes fadeOut{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
