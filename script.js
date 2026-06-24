@@ -10,15 +10,16 @@ cover.addEventListener("click", () => {
 
     cover.classList.add("fade-out");
 
-    setTimeout(() => {
+setTimeout(() => {
 
-        cover.style.display = "none";
-        mainContent.classList.remove("hidden");
-        mainContent.style.display = "block";
+    cover.style.display = "none";
 
-        music.play();
+    mainContent.classList.remove("hidden");
+    mainContent.classList.add("fade-in");
 
-    }, 800);
+    music.play();
+
+}, 800);
 
 });    
 const yesBtn = document.getElementById("yesBtn");
