@@ -344,7 +344,9 @@ button {
 .hidden{
     display:none;
 }
-
+#mainContent{
+    display:block;
+}
 .fade-out{
     animation: fadeOut .8s forwards;
 }
