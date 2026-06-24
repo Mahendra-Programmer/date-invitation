@@ -14,6 +14,7 @@ cover.addEventListener("click", () => {
 
         cover.style.display = "none";
         mainContent.classList.remove("hidden");
+        mainContent.style.display = "block";
 
         music.play();
 
