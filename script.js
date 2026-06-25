@@ -76,6 +76,44 @@ musicBtn.addEventListener("click", () => {
     }
 
 });
+    const nextSongBtn =
+    document.getElementById("nextSongBtn");
+
+nextSongBtn.addEventListener("click", () => {
+
+    currentSong++;
+
+    if(currentSong >= playlist.length){
+        currentSong = 0;
+    }
+
+    bgMusic.src = playlist[currentSong];
+
+    document.querySelector(".song-title").textContent =
+        "🎵 " + songNames[currentSong];
+
+    bgMusic.play();
+
+    musicBtn.innerHTML = "⏸ Pause Music";
+    musicPlaying = true;
+
+});
+    bgMusic.addEventListener("ended", () => {
+
+    currentSong++;
+
+    if(currentSong >= playlist.length){
+        currentSong = 0;
+    }
+
+    bgMusic.src = playlist[currentSong];
+
+    document.querySelector(".song-title").textContent =
+        "🎵 " + songNames[currentSong];
+
+    bgMusic.play();
+
+});
 const funnyMessages = [
     "Maaf tidak menerima NO? 😢",
     "you are love of my life? ❤️",
