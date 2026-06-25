@@ -6,9 +6,9 @@ const cover = document.getElementById("cover");
 const mainContent = document.getElementById("mainContent");
 const music = document.getElementById("bgMusic");
 const playlist = [
-    "music/song1.mp3",
-    "music/song2.mp3",
-    "music/song3.mp3"
+    "music/Song1.mp3",
+    "music/Song2.mp3",
+    "music/Song3.mp3"
 ];
 
 const songNames = [
