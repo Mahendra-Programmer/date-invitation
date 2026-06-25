@@ -5,7 +5,23 @@ document.addEventListener("DOMContentLoaded", () => {
 const cover = document.getElementById("cover");
 const mainContent = document.getElementById("mainContent");
 const music = document.getElementById("bgMusic");
+const playlist = [
+    "music/song1.mp3",
+    "music/song2.mp3",
+    "music/song3.mp3"
+];
 
+const songNames = [
+    "Date Night Vibes",
+    "Perfect",
+    "Until I Found You"
+];
+
+let currentSong = 0;
+
+bgMusic.src = playlist[currentSong];
+document.querySelector(".song-title").textContent =
+    "🎵 " + songNames[currentSong];
 cover.addEventListener("click", () => {
 
     cover.classList.add("fade-out");
