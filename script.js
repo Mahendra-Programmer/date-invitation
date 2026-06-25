@@ -37,6 +37,7 @@ setTimeout(() => {
 
     musicBtn.innerHTML = "⏸ Pause Music";
     musicPlaying = true;
+    document.querySelector(".music-player").style.opacity = "0.05";
 
 }, 800);
 });    
