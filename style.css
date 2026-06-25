@@ -140,10 +140,10 @@ to{
     position:fixed;
     bottom:20px;
     right:20px;
-    background:white;
+    background:transparent;
     padding:8px 12px;
     border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+    box-shadow:none;
 
     align-items:center;
     gap:10px;
@@ -359,4 +359,9 @@ button {
         opacity:0;
         visibility:hidden;
     }
+}
+.music-player button{
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 12px;
 }
