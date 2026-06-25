@@ -15,7 +15,12 @@ setTimeout(() => {
     cover.style.display = "none";
     mainContent.classList.remove("hidden");
 
+    document.querySelector(".music-player").style.display = "flex";
+
     music.play();
+
+    musicBtn.innerHTML = "⏸ Pause Music";
+    musicPlaying = true;
 
 }, 800);
 });    
