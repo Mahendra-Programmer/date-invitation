@@ -4,7 +4,7 @@ const girlName = params.get("name") || "Unknown";
 document.addEventListener("DOMContentLoaded", () => {
 const cover = document.getElementById("cover");
 const mainContent = document.getElementById("mainContent");
-const music = document.getElementById("bgMusic");
+const bgMusic = document.getElementById("bgMusic");
 const playlist = [
     "music/Song1.mp3",
     "music/Song2.mp3",
@@ -33,7 +33,7 @@ setTimeout(() => {
 
     document.querySelector(".music-player").style.display = "flex";
 
-    music.play();
+    bgMusic.play();
 
     musicBtn.innerHTML = "⏸ Pause Music";
     musicPlaying = true;
@@ -47,8 +47,7 @@ const noMessage = document.getElementById("noMessage");
 const musicBtn =
     document.getElementById("musicBtn");
 
-const bgMusic =
-    document.getElementById("bgMusic");
+
 
 let musicPlaying = false;
 
