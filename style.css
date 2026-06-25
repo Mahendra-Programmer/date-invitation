@@ -141,7 +141,7 @@ to{
     bottom:20px;
     right:20px;
     background:white;
-    padding:12px 18px;
+    padding:8px 12px;
     border-radius:20px;
     box-shadow:0 5px 20px rgba(0,0,0,0.2);
 
@@ -154,7 +154,7 @@ to{
 }
 
 .song-title{
-    font-size:14px;
+    font-size:11px;
     color:#444;
     font-weight:bold;
 }
